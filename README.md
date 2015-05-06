@@ -10,7 +10,7 @@
 
 ## 圖片移動： 
 
-會有半透明效果+鼠標改變
+會有半透明效果 + 鼠標改變
 
 <img src="https://raw.githubusercontent.com/Lolikitty/Image_Control/master/Image%20Control/GitHub/B.jpg" />
 
