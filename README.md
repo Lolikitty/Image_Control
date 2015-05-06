@@ -1,4 +1,4 @@
-# Image Control (圖片控制)
+# Image Controler (影像控制器)
 
 注意：本專案需使用到 NGUI
 
