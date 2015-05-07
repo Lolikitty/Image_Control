@@ -76,8 +76,9 @@ public class ImageControl : MonoBehaviour {
 	void ControlImage(GameObject obj, Vector2 dragVector){
 		float x = img.transform.localPosition.x;
 		float y = img.transform.localPosition.y;
-		float imgX = x + dragVector.x * 1.5f;
-		float imgY = y + dragVector.y * 1.5f;
+		float speed = 1680 / (float)(Screen.width + Screen.height);
+		float imgX = x + dragVector.x * speed;
+		float imgY = y + dragVector.y * speed;
 		// Move Image
 		SetXY (obj, imgX, imgY);
 		// Move Control Point
