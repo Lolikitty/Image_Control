@@ -108,19 +108,19 @@ public class ImageCropControl : MonoBehaviour {
 		float X = rt.anchoredPosition.x;
 		float Y = rt.anchoredPosition.y;
 		
-		float L = X - rt.sizeDelta.x / 2 - controlPointWidth;
-		float R = X + rt.sizeDelta.x / 2;
-		float T = Y + rt.sizeDelta.y / 2 + controlPointHeight * 1.25f;
-		float B = Y - rt.sizeDelta.y / 2 + controlPointHeight * 0.25f; // controlPointHeight
+		float L = X - rt.sizeDelta.x / 2 - controlPointWidth / 2;
+		float R = X + rt.sizeDelta.x / 2 + controlPointWidth / 2;
+		float T = Y + rt.sizeDelta.y / 2 + controlPointHeight / 2;
+		float B = Y - rt.sizeDelta.y / 2 - controlPointHeight / 2; // controlPointHeight
 		
 		ControlPointPosition [0] = new Vector2 (L, T);
-		ControlPointPosition [1] = new Vector2 (X-controlPointWidth/2, T);
+		ControlPointPosition [1] = new Vector2 (X, T);
 		ControlPointPosition [2] = new Vector2 (R, T);
-		ControlPointPosition [3] = new Vector2 (R, Y+controlPointHeight/2);
+		ControlPointPosition [3] = new Vector2 (R, Y);
 		ControlPointPosition [4] = new Vector2 (R, B);
-		ControlPointPosition [5] = new Vector2 (X-controlPointWidth/2, B);
+		ControlPointPosition [5] = new Vector2 (X, B);
 		ControlPointPosition [6] = new Vector2 (L, B);
-		ControlPointPosition [7] = new Vector2 (L, Y+controlPointHeight/2);
+		ControlPointPosition [7] = new Vector2 (L, Y);
 		
 		for(int i = 0; i < controlPoint.Length; i++){
 			controlPoint[i].GetComponent<RectTransform>().anchoredPosition = ControlPointPosition[i];
@@ -155,23 +155,11 @@ public class ImageCropControl : MonoBehaviour {
 		float x = rt.anchoredPosition.x + dragX;
 		float y = rt.anchoredPosition.y + dragY;
 
-//		float x = Input.mousePosition.x - Screen.width / 2;
-//		float y = Input.mousePosition.y - Screen.height / 2;
-
-
 		rt.anchoredPosition = new Vector2 (x, y);
-
-
 
 		tempDragMouseX = Input.mousePosition.x;
 		tempDragMouseY = Input.mousePosition.y;
 
-//		float x = img.transform.localPosition.x;
-//		float y = img.transform.localPosition.y;
-//		float speed = 1680 / (float)(Screen.width + Screen.height);
-//		float imgX = x + dragVector.x * speed;
-//		float imgY = y + dragVector.y * speed;
-//		
 //		if(lockR && imgX < 20){
 //			return;
 //		}
@@ -343,18 +331,5 @@ public class ImageCropControl : MonoBehaviour {
 //			obj.SetActive(value);
 //		}
 	}
-		
-	void SetX(GameObject obj, float x){
-		RectTransform rt = obj.GetComponent<RectTransform> ();
-		rt.anchoredPosition =  new Vector3 (x, rt.anchoredPosition.y);
-	}
-	
-	void SetY(GameObject obj, float y){
-		obj.transform.localPosition =  new Vector3 (obj.transform.localPosition.x, y);
-	}
-	
-	void SetXY(GameObject obj, float x, float y){
-		obj.transform.localPosition =  new Vector3 (x, y);
-	}
-	
+
 }
